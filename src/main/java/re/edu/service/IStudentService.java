@@ -2,10 +2,11 @@ package re.edu.service;
 
 import re.edu.dto.request.StudentAdd;
 import re.edu.dto.response.StudentResponse;
+import re.edu.exception.DataConflictException;
 
 import java.util.List;
 
 public interface IStudentService {
     List<StudentResponse> getActiveStudents();
-    StudentResponse  createStudent(StudentAdd request);
+    StudentResponse  createStudent(StudentAdd request) throws DataConflictException;
 }

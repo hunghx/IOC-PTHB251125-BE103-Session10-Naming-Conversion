@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import re.edu.dto.request.StudentAdd;
 import re.edu.dto.response.ApiResponse;
 import re.edu.dto.response.StudentResponse;
+import re.edu.exception.DataConflictException;
 import re.edu.service.IStudentService;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class StudentController {
 
     // Thêm mới sinh viên
     @PostMapping
-    public ResponseEntity<?> createStudent(@RequestBody StudentAdd request){
+    public ResponseEntity<?> createStudent(@RequestBody StudentAdd request) throws DataConflictException {
         ApiResponse<StudentResponse> res = new ApiResponse<>(
                 201,
                 "Load data success!!",

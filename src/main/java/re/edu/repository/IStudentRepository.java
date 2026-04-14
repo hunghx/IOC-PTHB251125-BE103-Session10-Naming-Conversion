@@ -11,4 +11,7 @@ import java.util.List;
 public interface IStudentRepository extends JpaRepository<Student, Long> {
     @Query("FROM Student S WHERE S.status = re.edu.entity.StudentStatus.ACTIVE")
     List<Student> findStudentActive();
+
+    boolean existsByEmail(String email);
+    boolean existsByPhone(String phone);
 }
