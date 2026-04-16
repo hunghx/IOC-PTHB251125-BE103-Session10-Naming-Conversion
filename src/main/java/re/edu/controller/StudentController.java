@@ -1,6 +1,7 @@
 package re.edu.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/students")
 @RequiredArgsConstructor
+@Slf4j
 public class StudentController {
     private final IStudentService studentService;
     // Lấy danh sách sinh viên đang active
     @GetMapping("/active")
     public ResponseEntity<?> getActiveStudents() {
+//        String username = token
+        var username = "";
+        log.info("usename access api" ,username );
         ApiResponse<List<StudentResponse>> res = new ApiResponse<>(
                 200,
                 "Load data success!!",

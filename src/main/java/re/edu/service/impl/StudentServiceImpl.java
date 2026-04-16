@@ -1,4 +1,4 @@
-package re.edu.service;
+package re.edu.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -8,9 +8,10 @@ import re.edu.dto.response.StudentResponse;
 import re.edu.entity.Student;
 import re.edu.entity.StudentStatus;
 import re.edu.exception.DataConflictException;
-import re.edu.mapper.StudentMapper;
 import re.edu.repository.IStudentRepository;
+import re.edu.service.IStudentService;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,9 +23,10 @@ public class StudentServiceImpl implements IStudentService {
 //    private final StudentMapper studentMapper;
     @Override
     public List<StudentResponse> getActiveStudents() {
-        return studentRepository.findStudentActive()
-                .stream()
-                .map(en->modelMapper.map(en,StudentResponse.class)).toList();
+        throw new RuntimeException("Lỗi khi thực thi lấy lữ liệu sinh viên");
+//            return studentRepository.findStudentActive()
+//                    .stream()
+//                    .map(en -> modelMapper.map(en, StudentResponse.class)).toList();
     }
 
     @Override
